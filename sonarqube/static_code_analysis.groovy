@@ -21,13 +21,13 @@ def call(){
           sh "mkdir -p empty"
           projectKey = "$env.REPO_NAME:$env.BRANCH_NAME".replaceAll("/", "_")
           projectName = "$env.REPO_NAME - $env.BRANCH_NAME"
-          def script = """/home/jenkins/sonar-scanner-3.0.3.778-linux/bin/sonar-scanner -X -Dsonar.login=${user} -Dsonar.password=${token} -Dsonar.projectKey="$projectKey" -Dsonar.projectName="$projectName" -Dsonar.projectBaseDir=. """
+          def script = """sonar-scanner -X -Dsonar.login=${user} -Dsonar.password=${token} -Dsonar.projectKey="$projectKey" -Dsonar.projectName="$projectName" -Dsonar.projectBaseDir=. """
            
           if (!fileExists("sonar-project.properties"))
             script += "-Dsonar.sources=\"./src\""
           
-          script.execute()
-          // sh script
+          //script.execute()
+          sh script
             
         }
         timeout(time: 1, unit: 'HOURS') {
