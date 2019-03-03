@@ -26,7 +26,7 @@ def call(){
           if (!fileExists("sonar-project.properties"))
             script += "-Dsonar.sources=\"./src\""
           
-          shell(script)
+          script.execute()
           // sh script
             
         }
