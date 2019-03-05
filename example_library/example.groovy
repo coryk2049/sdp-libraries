@@ -1,11 +1,8 @@
 def call() {
-
-
     stage("Example"){
         node{
-            sh "echo HelloWorld!"
+            sh "echo Example!"
         }
     }
-
     return this
 }
