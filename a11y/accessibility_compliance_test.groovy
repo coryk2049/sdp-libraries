@@ -20,7 +20,8 @@ void call(){
 
     inside_sdp_image "a11y", {
       sh "a11ym -o accessibility_compliance ${url}"
-      archive "accessibility_compliance/**"
+      archiveArtifacts artifacts: 'accessibility_compliance/**', onlyIfSuccessful: true
+      //archive "accessibility_compliance/**"
     }
   }
 
