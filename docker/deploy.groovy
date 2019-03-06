@@ -13,7 +13,7 @@ def call() {
       def img = images.find { it.repo == 'spring-boot-api' }
       println("${img.repo}")
       if ("${img.repo}" != null) {
-        sh "docker run --rm -p 8088:8080 -d --network=try-it-out_sdp --name spring-boot-api ${img.registry}/${img.repo}:${img.tag}"
+        sh "docker run --rm -p 8088:8080 -d --network=try-it-out_sdp --name ${img.repo} ${img.registry}/${img.repo}:${img.tag}"
       }
     }
   }
