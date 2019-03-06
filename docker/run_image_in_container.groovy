@@ -4,7 +4,7 @@
 */
 
 def call(p_name, p_portmap, p_network) {
-  stage "Running Docker Image in Container", {
+  stage "Running Image Container", {
     node{
       unstash "workspace"
       login_to_registry()
