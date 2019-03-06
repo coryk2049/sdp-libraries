@@ -10,9 +10,7 @@ def call() {
       login_to_registry()
       def images = get_images_to_build()
       def img = images.find { it == 'spring-boot-api' }
-      if (img != null) {
-        sh "docker run -t ${img.registry}/${img.repo}:${img.tag} --name ${img.repo}" 
-      }
+      sh 'echo "${img}"'
     }
   }
 }
