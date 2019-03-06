@@ -4,12 +4,11 @@
 */
 
 def call(p_name) {
-  stage "Stopping Container", {
-    node{
-      unstash "workspace"
-        sh "docker ps -f name=${p_name} -q | xargs --no-run-if-empty docker container stop"
-        // sh "docker container ls -a -fname=${p_name} -q | xargs -r docker container rm"
-      }
+stage "Stopping Container", {
+  node{
+    unstash "workspace"
+      sh "docker ps -f name=${p_name} -q | xargs --no-run-if-empty docker container stop"
+      // sh "docker container ls -a -fname=${p_name} -q | xargs -r docker container rm"
     }
   }
 }
