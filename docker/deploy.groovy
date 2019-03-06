@@ -10,7 +10,7 @@ def call() {
       login_to_registry()
       def images = get_images_to_build()
       println("${images}")
-      def img = images.find { it == 'spring-boot-api' }
+      def img = images.find { it == 'repo:spring-boot-api' }
       println("${img}")
     }
   }
